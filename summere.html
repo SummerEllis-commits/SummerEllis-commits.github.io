@@ -38,6 +38,7 @@
   <p>Hi! I'm Wei Wuxian, a  talented artist. Say hello!</p>
   <input id="Name" placeholder="Your name">
   <input id="Email" type="email" placeholder="Your email">
+  <input id="Color" placeholder="Your favorite color">
   <input id="submit" type="submit">
   
 <script type="module">
@@ -66,6 +67,7 @@
   
 const Name = document.querySelector("#Name")
 const Email = document.querySelector("#Email")
+const Color = document.querySelector("#Color")
 document.querySelector('#submit').addEventListener('click',Submit)
 
   function Submit() {
@@ -74,12 +76,13 @@ document.querySelector('#submit').addEventListener('click',Submit)
 	  set(ref(db,timestamp), {
 		  Name: Name.value,
 		  email:Email.value,
+		  color:Color.value,
 		  
 	  });
   
 	  Name.value = ""
 	  Email.value = ""
-  
+  	  Color.value = ""
     }
 
 
@@ -128,3 +131,8 @@ document.querySelector('#submit').addEventListener('click',Submit)
   
   
 </body>
+
+  
+
+
+
