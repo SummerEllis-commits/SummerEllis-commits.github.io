@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Sevillana&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<script src="/assets/jquery.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+  input {
+	font-size: 22px;
+  }
+	
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background:crimson;
+}
+div {
+  height: 300px;
+  background-size: 100% 100%;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family:  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-size: 75px;
+  color: pink;
+  margin: 60px 0 0 0;
+}
+h2 {
+ font-family: "Sevillana", cursive;
+  text-align: center;
+  color: b
+  margin: 0px 0 70px 0;
+  color:green;
+}
+p {
+  font-family: "Parkinsans", sans-serif;
+  color: rgba(236,39,141,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(189,39,236,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://www.lifeloveandsugar.com/wp-content/uploads/2019/07/Copycat-Dairy-Queen-Ice-Cream-Cake4.jpg");
+}
+.second{
+  background-image: url("https://www.gimmesomeoven.com/wp-content/uploads/2012/03/cherry-almond-cupcakes1.jpg");
+}
+.dessert{
+  background-image: url("https://barefootinthepines.com/wp-content/uploads/2024/09/Chocolate-Pie-With-Graham-Cracker-Crust-7-720x720.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+    color: black;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-family: "Sevillana",cursive;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>summer's bakery</h1>
+<h2>a New York City eatery</h2>
+<div class="first">
+  <input type="number" min="0" style="width: 50px"class="quantities">
+	<p>Ice Cream Cake <span class="price">$15</span><br />
+  <small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p>
+</div>
+
+<div class="second">
+  <input type="number" min="0" style="width: 50px"class="quantities">
+	<p>Cherry vanilla cupcakes <span class="price">$9</span><br />
+  <small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p>
+</div>
+  
+<div class="dessert">
+  <input type="number" min="0" style="width: 50px"class="quantities">
+	<p>Choclate Pie <span class="price">$24</span><br />
+  <small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p>
+</div>
+
+	<br><br>
+	<input id="Name" placeholder="Your name">
+  <input id="Email" type="email" placeholder="Your email">
+  <input id="submit" type="submit">
+	<br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+	
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+	import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCb5cm078UqKYiXBK2e4MtSQt133Mi5-pk",
+    authDomain: "summere3-ab47e.firebaseapp.com",
+    databaseURL: "https://summere3-ab47e-default-rtdb.firebaseio.com",
+    projectId: "summere3-ab47e",
+    storageBucket: "summere3-ab47e.firebasestorage.app",
+    messagingSenderId: "82829669032",
+    appId: "1:82829669032:web:3b96e27c83ff8274b3089d",
+    measurementId: "G-ZL9PC4GQHT"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+	const Name = document.querySelector("#Name")
+	const Email = document.querySelector("#Email")
+	document.querySelector('#submit').addEventListener('click',Submit)
+  const quantities = document.querySelectorAll(".quantities") 
+  const itemsList = ["Ice Cream Cake", "Cherry vanilla cupcakes", "Choclate Pie"]
+  const prices = document.querySelectorAll(".price") 
+	
+
+  function Submit() {
+  	const timestamp = buildTimestamp()
+		let total= 0
+
+		
+		let cart = { }
+		
+			for  (let i=0; i<quantities.length; i=i+1) {
+			  if (quantities[i].value != "0" && quantities[i].value != "") {	
+		      let price = prices[i].innerHTML.replace('$', '')
+		      total = total + quantities[i].value * price 
+			    cart[itemsList[i]] = parseInt(quantities[i].value) 
+			  }
+			  quantities[i].value = ""
+			}
+		
+		
+	  
+	  set(ref(db,timestamp), {
+		  Name: Name.value,
+		  email:Email.value,
+			cart: cart,
+ 		  totalPrice: total,
+      paid: "not yet",
+					
+		  
+	  });
+  
+	  Name.value = ""
+	  Email.value = ""
+  
+    }
+
+
+
+	function buildTimestamp() {
+	  const now = new Date();
+	  let timestamp = now.getFullYear().toString() + "/";
+	  //const month = now.toLocaleString('default', { month: 'long' });
+
+	  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+	  month = month.toString()
+	  month = addLeadingZero(month)
+	  timestamp += month + "/"; 
+
+	  let date = now.getDate().toString()
+	  date = addLeadingZero(date)
+	  timestamp += date + "/";
+
+	  let hours = now.getHours().toString()
+	  hours = addLeadingZero(hours)
+	  timestamp += hours + ":";
+
+	  let minutes = now.getMinutes().toString()
+	  minutes = addLeadingZero(minutes)
+	  timestamp += minutes + ":";
+
+	  let seconds = now.getSeconds().toString()
+	  seconds = addLeadingZero(seconds)
+	  timestamp += seconds;
+  
+	  return timestamp
+	}
+	
+	function addLeadingZero(units) {
+		if (units.length < 2) {
+			units = "0" + units
+		}
+		return units
+	}
+</script>	
+	
+
+</body>
